@@ -21,3 +21,4 @@ renamed as (
 select * from renamed
 
 --shipping fee 1 was duplicated so i removed
+
