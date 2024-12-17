@@ -7,8 +7,35 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
+        description: "this is sales table"
+        columns:
+          - name: date_date
+            description: "date of sales"
+          - name: orders_id
+            description: "order id"
+          - name: ptd_id
+          - name: revenue
+          - name: quantity
 
       - name: product
         identifier: raw_gz_product
+        description: "this is product table"
+        columns:
+          - name: products_id
+            description: "product id"
+            tests:
+              - not_null
+              - unique
+          - name: purchSE_PRICE
       - name: ship
         identifier: raw_gz_ship
+        description: "this is ship table"
+        columns:
+          - name: orders_id
+            tests:
+              - not_null
+              - unique
+          - name: shipping_fee
+            description: "revenue fee"
+          - name: logCost
+          - name: ship_cost
