@@ -13,9 +13,12 @@ sources:
             description: "date of sales"
           - name: orders_id
             description: "order id"
-          - name: ptd_id
+          - name: pdt_id
           - name: revenue
           - name: quantity
+        tests:
+          - unique:
+              column_name: "(orders_id || '_' || pdt_id)"
 
       - name: product
         identifier: raw_gz_product
