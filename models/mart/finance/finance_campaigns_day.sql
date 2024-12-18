@@ -15,6 +15,6 @@ CT.date_date
 ,DT.logcost
 ,DT.ship_cost
 from {{ ref('int_campaigns_day') }} AS CT
-JOIN {{ ref('finance_days') }} AS DT
+INNER JOIN {{ ref('finance_days') }} AS DT
 USING (date_date)
 ORDER BY date_date DESC

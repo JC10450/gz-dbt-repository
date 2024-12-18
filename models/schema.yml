@@ -265,3 +265,47 @@ models:
       - name: ads_clicks
         tests:
           - not_null
+
+  - name: finance_campaigns_day
+    description: "all campaign data + finance data per day"
+    columns:
+      - name: date_date
+        description: "date"
+        tests:
+          - not_null
+          - unique
+      - name: ads_cost
+        tests:
+          - not_null
+      - name: ads_impression
+        tests:
+          - not_null
+      - name: ads_clicks
+        tests:
+          - not_null
+      - name: operational_margin
+        description: operational_margin = margin + shipping_fee - logcost - ship_cost
+      - name: quantity
+        description: sum of quantity per order
+        tests:
+           - not_null
+      - name: revenue
+        description: sum of revenue per order
+        tests:
+           - not_null
+      - name: purchase_cost
+        description: purchase_cost = quantity * purchase_price
+        tests:
+           - not_null
+      - name: margin
+        description: margin = revenue - purchase_cost
+        tests:
+           - not_null
+      - name: shipping_fee
+        description: the price the customer pays for shipping
+      - name: logcost
+        description: the cost of preparing the parcel in the distribution centre/warehouse
+      - name: ship_cost
+        description: shipping cost paid by Greenweez to the carrier/logistics provider
+
+      
