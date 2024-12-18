@@ -42,6 +42,65 @@ sources:
             description: "revenue fee"
           - name: logCost
           - name: ship_cost
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: "this is sadwords data"
+        columns:
+          - name: date_date
+            description: "date"
+          - name: paid_source
+            description: "paid_source"
+          - name: campaign_key
+            description: "key of the campaign"
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
+
+      - name: bing
+        identifier: raw_gz_bing
+        description: "this is bing data"
+        columns:
+          - name: date_date
+            description: "date"
+          - name: paid_source
+            description: "paid_source"
+          - name: campaign_key
+            description: "key of the campaign"
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: "this is criteo data"
+        columns:
+          - name: date_date
+            description: "date"
+          - name: paid_source
+            description: "paid_source"
+          - name: campaign_key
+            description: "key of the campaign"
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: "this is facebook data"
+        columns:
+          - name: date_date
+            description: "date"
+          - name: paid_source
+            description: "paid_source"
+          - name: campaign_key
+            description: "key of the campaign"
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
+
 models:
 
   # Intermediate #
