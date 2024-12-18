@@ -1,6 +1,6 @@
 -- -- finance_days.sql
 
- {{ config(materialized='table') }}
+-- we remove {{ config(materialized='table') }}
 
 SELECT
      date_date
