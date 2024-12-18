@@ -56,7 +56,9 @@ sources:
           - name: ads_cost
           - name: impression
           - name: click
-
+        tests:
+          - unique:
+              column_name: "(date_date || '_' || campaign_key)"
       - name: bing
         identifier: raw_gz_bing
         description: "this is bing data"
@@ -71,7 +73,9 @@ sources:
           - name: ads_cost
           - name: impression
           - name: click
-
+        tests:
+          - unique:
+              column_name: "(date_date || '_' || campaign_key)"
       - name: criteo
         identifier: raw_gz_criteo
         description: "this is criteo data"
@@ -86,6 +90,10 @@ sources:
           - name: ads_cost
           - name: impression
           - name: click
+        tests:
+          - unique:
+              column_name: "(date_date || '_' || campaign_key)"
+
       - name: facebook
         identifier: raw_gz_facebook
         description: "this is facebook data"
@@ -100,10 +108,14 @@ sources:
           - name: ads_cost
           - name: impression
           - name: click
+        tests:
+          - unique:
+              column_name: "(date_date || '_' || campaign_key)"
 
 models:
 
   # Intermediate #
+
   - name: int_orders_margin
     description: margin calculation per order
     columns:
@@ -203,3 +215,35 @@ models:
         description: the cost of preparing the parcel in the distribution centre/warehouse
       - name: ship_cost
         description: shipping cost paid by Greenweez to the carrier/logistics provider
+
+
+  - name: int_campaigns
+    description: "all campaign data"
+    columns:
+      - name: date_date
+        description: "date"
+        tests:
+          - not_null
+      - name: paid_source
+        description: "paid_source"
+        tests:
+          - not_null
+      - name: campaign_key
+        description: "key of the campaign"
+        tests:
+          - not_null
+      - name: campaign_name
+        tests:
+          - not_null
+      - name: ads_cost
+        tests:
+          - not_null
+      - name: impression
+        tests:
+          - not_null
+      - name: click
+        tests:
+          - not_null
+    tests:
+      - unique:
+           column_name: "(date_date || '_' || campaign_key)"
